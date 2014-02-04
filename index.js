@@ -6,6 +6,7 @@ var walk = function(directory, done) {
   if (done == null) {
     done = function(err) { if (err) throw Error(err) }
   }
+  directory = path.resolve(path.dirname(require.main.filename), directory);
   fs.readdir(directory, function(err, files) {
     if (err) return done(err)
     var pending = files.length;
