@@ -1,5 +1,6 @@
 
 fs = require('fs');
+path = require('path');
 
 var walk = function(directory, done) {
   if (done == null) {
@@ -10,14 +11,14 @@ var walk = function(directory, done) {
     var pending = files.length;
     if (!pending) return done();
     files.forEach(function(file) {
-      file = directory + '/' + file;
+      file = path.join(directory, file);
       fs.stat(file, function(err, stat) {
         if (stat && stat.isDirectory()) {
           walk(file, function(err, res) {
             if (!--pending) done();
           });
         } else {
-          if (file.indexOf('.coffee') > 0 || file.indexOf('.js') > 0) {
+          if (path.extname(file) === '.coffee' || path.extname(file) === '.js') {
             require(file);
           }
           if (!--pending) done();
