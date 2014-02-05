@@ -2,7 +2,7 @@
 fs = require('fs');
 path = require('path');
 
-var walk = function(directory, done) {
+function walk(directory, done) {
   if (done == null) {
     done = function(err) { if (err) throw Error(err) }
   }
