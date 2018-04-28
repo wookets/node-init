@@ -3,6 +3,8 @@ a 'server' directory with all your files that need to be registered or loaded (r
 
 ## Install
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wookets/node-init.svg)](https://greenkeeper.io/)
+
 In package.json:
 
 ```"init": "https://github.com/wookets/node-init/tarball/0.1.0"```
